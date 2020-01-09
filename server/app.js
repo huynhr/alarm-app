@@ -1,9 +1,8 @@
 const express = require('express');
-const users = require('./routes/users')
+const routes = require('./routes/routes')
 const app = express();
 const port = 3000;
 
-app.get("/", (req, res) => res.send("Hello World!"));
-app.use('/users', users);
+app.use('/', routes);
 
 app.listen(port, () => console.log(`Listening on port: ${port}`));
