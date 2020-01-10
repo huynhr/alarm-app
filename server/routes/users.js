@@ -4,7 +4,7 @@ const cors = require('cors');
 const router = express.Router();
 
 router.get('/', cors(), (req, res) => {
-  res.json({'user': 1})
+  res.json([{'id': 1, 'name': 'Ray'}])
 })
 
 module.exports = router;
