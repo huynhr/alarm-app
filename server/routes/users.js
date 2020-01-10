@@ -1,8 +1,10 @@
 const express = require("express");
+const cors = require('cors');
+
 const router = express.Router();
 
-router.get('/', (req, res) => {
-  res.json(JSON.stringify({'user': 1}))
+router.get('/', cors(), (req, res) => {
+  res.json({'user': 1})
 })
 
 module.exports = router;
