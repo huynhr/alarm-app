@@ -1,11 +1,12 @@
 const jwt = require('jsonwebtoken')
+const config = require('../../../config/config.json')
 
 const createToken = function(auth) {
   return jwt.sign(
     {
       id: auth.id
     },
-    'savannah',
+    config.JWT_SECRET,
     {
       expiresIn: 60 * 120
     }
@@ -13,10 +14,10 @@ const createToken = function(auth) {
 };
 
 const verifyToken = (token) => {
-  return jwt.verify(token, 'savannah', (err, decoded) => {
-    console.log(decoded)
-    if (err) return false
-    return true
+  return jwt.verify(token, config.JWT_SECRET, (err, decoded) => {
+    console.log(decoded);
+    if (err) return false;
+    return true;
   });
 
 }
