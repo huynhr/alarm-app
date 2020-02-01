@@ -1,9 +1,10 @@
 const express = require("express");
 const cors = require('cors');
+const { authenticateToken } = require('../utils/token/utils');
 
 const router = express.Router();
 
-router.get('/', cors(), (req, res) => {
+router.get('/', authenticateToken, (req, res) => {
   res.json([{'id': 1, 'name': 'Ray'}])
 })
 
