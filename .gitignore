@@ -106,4 +106,4 @@ dist
 # VS code
 alarm-app.code-workspace
 
-config/config.json
+.env

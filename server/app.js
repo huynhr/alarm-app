@@ -1,10 +1,14 @@
+const path = require('path');
+require('dotenv').config({ path: `${path.resolve(process.cwd())}/.env` });
+
 const express = require('express');
+const cors = require('cors');
 const routes = require('./routes/routes')
 const bodyParser = require('body-parser')
-const cors = require('cors');
+const knex = require('../database/intialize');
 const app = express();
-const port = process.env.PORT || 3000;
 
+const port = process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
