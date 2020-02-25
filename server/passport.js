@@ -1,5 +1,6 @@
-const passport = require("passport");
-const GoogleTokenStrategy = require("passport-google-token").Strategy;
+const passport = require('passport');
+const GoogleTokenStrategy = require('passport-google-token').Strategy;
+const { createFindUser } = require('../database/controllers');
 
 const _USERS = {}
 
@@ -21,6 +22,7 @@ module.exports = function() {
       },
       function(accessToken, refreshToken, profile, done) {
         saveUser(accessToken, refreshToken, profile, (err, user) => {
+          createFindUser(profile)
           return done(err, user);
         })
       }

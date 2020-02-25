@@ -5,7 +5,7 @@ const express = require('express');
 const cors = require('cors');
 const routes = require('./routes/routes')
 const bodyParser = require('body-parser')
-const knex = require('../database/intialize');
+const knex = require('../database/knex');
 const app = express();
 
 const port = process.env.PORT || 3000;
